@@ -1,0 +1,43 @@
+{{!-- {
+"id": 1,
+"name": "test",
+"Protein": "Protein 1.9g",
+"TotalLipidFat": "Total lipid (fat) 10g",
+"CarbohydrateByDifference": "Carbohydrate, by difference 32.9g",
+"FiberTotalDietary": "Fiber, total dietary 0.8g",
+"SugarsTotal": "Sugars, total 16.23g",
+"Cholesterol": "Cholesterol 0mg",
+"createdAt": "2018-05-01T18:36:13.000Z",
+"updatedAt": "2018-05-01T18:36:13.000Z"
+}, --}}
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Protein</th>
+            <th>Total Lipid Fat</th>
+            <th>Carbohydrate</th>
+            <th>Fiber</th>
+            <th>Sugars</th>
+            <th>Cholesterol</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each dbFood}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.Protein}}</td>
+            <td>{{this.TotalLipidFat}}</td>
+            <td>{{this.CarbohydrateByDifference}}</td>
+            <td>{{this.FiberTotalDietary}}</td>
+            <td>{{this.SugarsTotal}}</td>
+            <td>{{this.Cholesterol}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

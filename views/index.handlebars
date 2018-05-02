@@ -1,0 +1,116 @@
+
+{{#if food}}
+<h2>{{name}}</h2>
+{{/if}} {{#each food}}
+<p>{{name}}</p>
+<p>{{value}}</p>
+<p>{{unit}}</p>
+{{/each}}
+{{#each name}} {{/each}}
+
+<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/img/simpleFridge4.png" alt="">
+            </a>
+        </div>
+        <!--Desktop Nav-->
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item" href="/charity">Donate</a>
+                <a class="navbar-item" href="/recipe">Recipes</a>
+                <a class="navbar-item" href="/bmi">Calculators</a>
+            </div>
+        </div>
+
+  </nav>
+  <!--Logo-->
+
+  <img src="/img/simpleFridge.png" class="center" id="logo">
+
+  
+    <div class="container">
+      <div class="input-group mb-3">
+      <input type="text" class="form-control" id="search-input" placeholder="" aria-label="Nutrients" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+      <button class="btn btn-sm" type="button" id="buttonIdPost">Save to Favorites</button>
+      <button class="btn btn-sm" type="button" id="buttonId">Search</button>
+    </div>
+
+
+  <br>
+  <br>
+  <br>
+  <div id="nutrient-results">
+    <table id="nutrient-table" style="width:100%">
+      {{!--
+      <tr>
+        <th></th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Age</th>
+        <th>Age</th>
+      </tr> --}}
+      <tr>
+        <td id="myTd1"></td>
+        <td id="myTd2"></td>
+        <td id="myTd3"></td>
+        <td id="myTd4"></td>
+        <td id="myTd5"></td>
+        <td id="myTd6"></td>
+      </tr>
+    </table>
+  </div>
+  <!--Macro Calculator-->
+<!--<section id="section">
+    <div class="box" id="macro-calc">
+      <h5 class="title is-5">Macro Calculator</h5>
+      <script type="text/javascript">!function (d, s, id, url) {
+          var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + url; fjs.parentNode.insertBefore(js, fjs); }
+        }(document, 'script', 'macro-calc-script', '://macroscalculator.herokuapp.com//widget.js');
+      </script>
+    </div>
+  </section>-->
+</body>
+
+<style media="screen">
+  body {
+    padding: auto;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .navbar {
+    background-color: #F3D352;
+    padding-top: 12px;
+    padding-bottom: 6px;
+  }
+
+
+  .navbar-item {
+    color: black;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  #buttonId {
+    background-color: #419513;
+  }
+
+  .box {
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+  }
+  #nutient-results {
+    background-color: #419513;
+    border: #F3D352
+  }
+</style>

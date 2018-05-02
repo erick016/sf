@@ -1,0 +1,28 @@
+<input id = "input1">
+</input>
+<input id = "input2">
+</input>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type = "text/javascript">
+
+
+function checkInputs()
+{
+var string1 = $("#input1").val();
+var string2 = $("#input2").val();
+
+console.log("Hello");
+
+
+console.log((/^[!#$%&'*+\-`{|}~/=?^A-Za-z0-9\_\.]+@([A-Za-z0-9]+\.)+([A-Za-z0-9]+)$/g).test(string1));
+console.log((/(.jpg$|.png$)/i).test(string2));
+
+
+
+}
+
+</script>
+
+<button id = "testButton" onclick="checkInputs()"> Test!</button>

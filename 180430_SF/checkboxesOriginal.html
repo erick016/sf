@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API Request URL Generation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox1"> Beef
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox2"> Poultry
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox3"> Seafood
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox4"> Grains
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox5"> Fruits & Vegetables
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="checkBox6"> Fats
+            </label>
+
+        </div>
+        <button type="button" id="enterButton">Enter</button>
+    </section>
+    <script>
+        var outString = "";
+        $("#enterButton").click(function () {
+            if ($('#checkBox1').prop('checked')) {
+                outString += "Beef ";
+            }
+            if ($('#checkBox2').prop('checked')) {
+                outString += "Poultry ";
+            }
+            if ($('#checkBox3').prop('checked')) {
+                outString += "Seafood ";
+            }
+            if ($('#checkBox4').prop('checked')) {
+                outString += "Grains ";
+            }
+            if ($('#checkBox5').prop('checked')) {
+                outString += "Vegetables ";
+            }
+            if ($('#checkBox6').prop('checked')) {
+                outString += "Fats ";
+            }
+
+            $.getJSON("http://localhost:8080/api/recipe/" + outString, function(data){
+                console.log(data);
+            });
+
+            // if (!outString.includes(" ")) {
+            //     outString = "http://api.yummly.com/v1/api/recipes?_app_id=1dbb972f&_app_key=b324c49fd90213381df771e8b70bb3c7&";
+            // }
+            // else {
+            //     outString += outString.slice(0, length - 1);
+            // }
+            // console.log(outString);
+            // outString = "http://api.yummly.com/v1/api/recipes?_app_id=1dbb972f&_app_key=b324c49fd90213381df771e8b70bb3c7&"
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple-Fridge</title>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+          <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/img/simpleFridge4.png" alt="">
+            </a>
+        </div>
+        <!--Desktop Nav-->
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item" href="/charity">Donate</a>
+
+                <a class="navbar-item" href="/bmi">Calculators</a>
+            </div>
+        </div>
+
+  </nav>
+    
+  <section class="section">
+    <div class="container">
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox1">
+            Beef
+        </label>
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox2">
+            Poultry
+        </label>
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox3">
+            Seafood
+        </label>
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox4">
+            Grains
+        </label>
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox5" >
+            Fruits & Vegetables
+        </label>
+        <label class="checkbox" >
+            <input type="checkbox" id="checkBox6">
+            Fats
+        </label>
+        
+    </div>
+    <button type="button" id = "enterButton" >Enter</button>
+    <pre id="data-json"></pre>
+  </section>
+  <script>
+        var outString = "";
+        $("#enterButton").click(function () {
+            if ($('#checkBox1').prop('checked')) {
+                outString += "Beef ";
+            }
+            if ($('#checkBox2').prop('checked')) {
+                outString += "Poultry ";
+            }
+            if ($('#checkBox3').prop('checked')) {
+                outString += "Seafood ";
+            }
+            if ($('#checkBox4').prop('checked')) {
+                outString += "Grains ";
+            }
+            if ($('#checkBox5').prop('checked')) {
+                outString += "Vegetables ";
+            }
+            if ($('#checkBox6').prop('checked')) {
+                outString += "Fats ";
+            }
+
+            $.getJSON("/api/recipe/" + outString, function(data){
+                var responseString = JSON.stringify(data);
+                $("#data-json").append(responseString);
+            });
+        });
+  </script>
+  </body>
+
+
+<style media="screen">
+  body {
+    padding: auto;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  .navbar {
+    background-color: #F3D352;
+
+  }
+
+
+  .navbar-item {
+    color: black;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  #buttonId {
+    background-color: #419513;
+  }
+
+  .box {
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+  }
+
+
+</style>
